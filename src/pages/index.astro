@@ -37,76 +37,163 @@ const work = [
   },
 ];
 
-const stack = ['Python', 'SQL', 'Databricks', 'Snowflake', 'Spark', 'Airflow', 'dbt', 'AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'LLM', 'MCP', 'RAG', 'LangGraph'];
+const stack = [
+  'Python',
+  'SQL',
+  'Databricks',
+  'Snowflake',
+  'Spark',
+  'Airflow',
+  'dbt',
+  'AWS',
+  'Azure',
+  'GCP',
+  'Docker',
+  'Kubernetes',
+  'Terraform',
+  'LLM',
+  'MCP',
+  'RAG',
+  'LangGraph',
+];
 
 const timeline = [
-  ['2025—now', 'PepsiCo', 'Principal Data Engineer'],
-  ['2022—2025', 'PepsiCo', 'Senior Data Engineer'],
-  ['2022', 'Volvo Group', 'Data Engineer'],
-  ['2021—2022', 'EY GDS', 'Data Engineer / Consultant'],
-  ['2021', '3M', 'Data Engineer'],
-  ['2020—2021', 'F-Secure', 'Junior Data Scientist'],
-  ['2019—2020', 'Daimler Truck', 'ADAS Software Data Engineer'],
-  ['2019', 'Bosch', 'Data Science Working Student'],
+  ['2025—now', 'PepsiCo', 'Principal Data Engineer', 'pepsico'],
+  ['2022—2025', 'PepsiCo', 'Senior Data Engineer', 'pepsico'],
+  ['2022', 'Volvo Group', 'Data Engineer', 'volvo'],
+  ['2021—2022', 'EY GDS', 'Data Engineer / Consultant', 'ey'],
+  ['2021', '3M', 'Data Engineer', '3m'],
+  ['2020—2021', 'F-Secure', 'Junior Data Scientist', 'fsecure'],
+  ['2019—2020', 'Daimler Truck', 'ADAS Software Data Engineer', 'daimler'],
+  ['2019', 'Bosch', 'Data Science Working Student', 'bosch'],
 ];
 ---
+
 <BaseLayout>
   <div id="top"></div>
+
   <Header />
+
   <main>
-    <section class="container grid min-h-[78vh] items-end gap-10 pb-18 pt-20 lg:grid-cols-[1.1fr_.9fr] lg:pb-28">
+    <!-- Hero -->
+    <section class="container grid gap-10 pb-12 pt-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:pb-16 lg:pt-14">
       <div class="reveal">
-        <div class="eyebrow mb-5">Warsaw, Poland · Principal Data Engineer</div>
-        <h1 class="display max-w-5xl">Alparslan<br /><span class="text-black/55">Erol.</span></h1>
-        <p class="lede mt-8 max-w-2xl text-black/72">I design and build scalable data platforms, cloud systems, and AI-native engineering workflows.</p>
+        <div class="eyebrow mb-5">
+          Warsaw, Poland · Principal Data Engineer
+        </div>
+
+        <h1 class="display max-w-5xl">
+          Alparslan<br />
+          <span class="text-black/55">Erol.</span>
+        </h1>
+
+        <p class="lede mt-8 max-w-2xl text-black/72">
+          I design and build scalable data platforms, cloud systems, and AI-native engineering workflows.
+        </p>
+
         <div class="mt-9 flex flex-wrap gap-3 text-sm">
-          <a class="rounded-full bg-black px-5 py-3 text-white transition hover:-translate-y-0.5" href="https://www.linkedin.com/in/alparslan-erol/">LinkedIn ↗</a>
-          <a class="rounded-full border border-black/15 bg-white/55 px-5 py-3 transition hover:-translate-y-0.5" href="https://github.com/AlparslanErol">GitHub ↗</a>
-          <a class="rounded-full border border-black/15 bg-white/55 px-5 py-3 transition hover:-translate-y-0.5" href="/cv/alparslan-erol-cv.pdf">Download CV ↓</a>
+          <a
+            class="rounded-full bg-[#0A66C2] px-5 py-3 text-white transition hover:-translate-y-0.5 hover:bg-[#004182]"
+            href="https://www.linkedin.com/in/alparslan-erol/"
+          >
+            LinkedIn ↗
+          </a>
+
+          <a
+            class="rounded-full border border-black/15 bg-white/55 px-5 py-3 transition hover:-translate-y-0.5"
+            href="https://github.com/AlparslanErol"
+          >
+            GitHub ↗
+          </a>
+
+          <a
+            class="rounded-full border border-black/15 bg-white/55 px-5 py-3 transition hover:-translate-y-0.5"
+            href="/cv/alparslan-erol-cv.pdf"
+          >
+            Download CV ↓
+          </a>
         </div>
       </div>
 
       <div class="reveal reveal-d2">
         <DataTopology />
-        <p class="mt-3 text-right text-xs text-black/45">A simplified view of how I think about production data systems.</p>
+
+        <p class="mt-3 text-right text-xs text-black/45">
+          A simplified view of how I think about production data systems.
+        </p>
       </div>
     </section>
 
+    <!-- Impact -->
     <section class="border-y border-black/10 bg-white/40">
       <div class="container grid grid-cols-2 md:grid-cols-4">
         {impact.map((item) => (
           <div class="border-r border-black/10 px-4 py-8 last:border-r-0 md:px-7 md:py-10">
-            <div class="text-4xl font-semibold tracking-tight md:text-5xl">{item.value}</div>
-            <div class="mt-2 text-sm text-black/55">{item.label}</div>
+            <div class="text-4xl font-semibold tracking-tight md:text-5xl">
+              {item.value}
+            </div>
+
+            <div class="mt-2 text-sm text-black/55">
+              {item.label}
+            </div>
           </div>
         ))}
       </div>
     </section>
 
+    <!-- Selected Work -->
     <section id="work" class="container py-24 lg:py-32">
       <div class="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <div class="eyebrow mb-3">01 · Selected work</div>
-          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">Systems, not screenshots.</h2>
+          <div class="eyebrow mb-3">
+            01 · Selected work
+          </div>
+
+          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">
+            Systems, not screenshots.
+          </h2>
         </div>
-        <p class="max-w-md text-sm leading-6 text-black/55">The strongest parts of my portfolio are the systems I helped design, scale, and make reliable.</p>
+
+        <p class="max-w-md text-sm leading-6 text-black/55">
+          The strongest parts of my portfolio are the systems I helped design,
+          scale, and make reliable.
+        </p>
       </div>
 
       <div class="space-y-4">
         {work.map((item) => (
           <article class="group rounded-3xl border border-black/10 bg-white/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-black/20 md:p-8">
             <div class="grid gap-8 lg:grid-cols-[80px_1fr_auto] lg:items-start">
-              <div class="font-mono text-sm text-black/35">{item.number}</div>
+              <div class="font-mono text-sm text-black/35">
+                {item.number}
+              </div>
+
               <div>
-                <div class="eyebrow">{item.kicker}</div>
-                <h3 class="mt-2 text-3xl font-semibold tracking-tight">{item.title}</h3>
-                <p class="mt-4 max-w-3xl leading-7 text-black/65">{item.body}</p>
+                <div class="eyebrow">
+                  {item.kicker}
+                </div>
+
+                <h3 class="mt-2 text-3xl font-semibold tracking-tight">
+                  {item.title}
+                </h3>
+
+                <p class="mt-4 max-w-3xl leading-7 text-black/65">
+                  {item.body}
+                </p>
+
                 <div class="mt-5 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => <span class="rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs text-black/60">{tag}</span>)}
+                  {item.tags.map((tag) => (
+                    <span class="rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs text-black/60">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
+
               <div class="lg:text-right">
-                <div class="text-2xl font-semibold tracking-tight">{item.metric}</div>
+                <div class="text-2xl font-semibold tracking-tight">
+                  {item.metric}
+                </div>
               </div>
             </div>
           </article>
@@ -114,84 +201,346 @@ const timeline = [
       </div>
     </section>
 
+    <!-- Engineering Lens -->
     <section id="systems" class="border-y border-black/10 bg-[#171717] text-white">
       <div class="container grid gap-14 py-24 lg:grid-cols-[.8fr_1.2fr] lg:py-32">
         <div>
-          <div class="eyebrow text-white/45">02 · Engineering lens</div>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">Data × Cloud × AI.</h2>
-          <p class="mt-7 max-w-lg text-lg leading-8 text-white/65">My current focus is where modern data-platform engineering meets AI: reliable foundations, governed data, and workflows that make engineers and users more effective.</p>
+          <div class="eyebrow text-white/45">
+            02 · Engineering lens
+          </div>
+
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+            Data × Cloud × AI.
+          </h2>
+
+          <p class="mt-7 max-w-lg text-lg leading-8 text-white/65">
+            My current focus is where modern data-platform engineering meets AI:
+            reliable foundations, governed data, and workflows that make
+            engineers and users more effective.
+          </p>
         </div>
+
         <div>
           <div class="grid gap-4 sm:grid-cols-2">
             <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm text-white/45">Data Platforms</div>
-              <div class="mt-3 text-2xl font-semibold">Lakehouse & warehouse architecture</div>
-              <p class="mt-3 text-sm leading-6 text-white/55">ETL/ELT, orchestration, modeling, governance, contracts, data products.</p>
+              <div class="text-sm text-white/45">
+                Data Platforms
+              </div>
+
+              <div class="mt-3 text-2xl font-semibold">
+                Lakehouse & warehouse architecture
+              </div>
+
+              <p class="mt-3 text-sm leading-6 text-white/55">
+                ETL/ELT, orchestration, modeling, governance, contracts,
+                data products.
+              </p>
             </div>
+
             <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm text-white/45">AI × Engineering</div>
-              <div class="mt-3 text-2xl font-semibold">AI-native development workflows</div>
-              <p class="mt-3 text-sm leading-6 text-white/55">LLMs, MCP, RAG, LangGraph, semantic search, AI assistants, AI-to-BI.</p>
+              <div class="text-sm text-white/45">
+                AI × Engineering
+              </div>
+
+              <div class="mt-3 text-2xl font-semibold">
+                AI-native development workflows
+              </div>
+
+              <p class="mt-3 text-sm leading-6 text-white/55">
+                LLMs, MCP, RAG, LangGraph, semantic search, AI assistants,
+                AI-to-BI.
+              </p>
             </div>
+
             <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm text-white/45">Cloud</div>
-              <div class="mt-3 text-2xl font-semibold">AWS · Azure · GCP</div>
-              <p class="mt-3 text-sm leading-6 text-white/55">Serverless, Kubernetes, containers, IaC, CI/CD, platform engineering.</p>
+              <div class="text-sm text-white/45">
+                Cloud
+              </div>
+
+              <div class="mt-3 text-2xl font-semibold">
+                AWS · Azure · GCP
+              </div>
+
+              <p class="mt-3 text-sm leading-6 text-white/55">
+                Serverless, Kubernetes, containers, IaC, CI/CD,
+                platform engineering.
+              </p>
             </div>
+
             <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm text-white/45">Reliability</div>
-              <div class="mt-3 text-2xl font-semibold">Quality by design</div>
-              <p class="mt-3 text-sm leading-6 text-white/55">Testing, observability, data quality monitors, contracts, automation.</p>
+              <div class="text-sm text-white/45">
+                Reliability
+              </div>
+
+              <div class="mt-3 text-2xl font-semibold">
+                Quality by design
+              </div>
+
+              <p class="mt-3 text-sm leading-6 text-white/55">
+                Testing, observability, data quality monitors, contracts,
+                automation.
+              </p>
             </div>
           </div>
+
           <div class="mt-6 flex flex-wrap gap-2">
-            {stack.map((tag) => <span class="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/60">{tag}</span>)}
+            {stack.map((tag) => (
+              <span class="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/60">
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Career -->
     <section class="container py-24 lg:py-32">
       <div class="grid gap-14 lg:grid-cols-[.75fr_1.25fr]">
         <div>
-          <div class="eyebrow mb-3">03 · Career</div>
-          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">Built across industries.</h2>
-          <p class="mt-6 max-w-md leading-7 text-black/55">From manufacturing and cybersecurity to global consumer data products, each role has added another layer to how I design systems.</p>
+          <div class="eyebrow mb-3">
+            03 · Career
+          </div>
+
+          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">
+            Built across industries.
+          </h2>
+
+          <p class="mt-6 max-w-md leading-7 text-black/55">
+            From manufacturing and cybersecurity to global consumer data
+            products, each role has added another layer to how I design systems.
+          </p>
         </div>
+
         <div>
-          {timeline.map(([date, company, role]) => (
-            <div class="grid grid-cols-[90px_1fr] gap-5 border-t border-black/10 py-6 sm:grid-cols-[120px_1fr]">
-              <div class="font-mono text-xs text-black/40">{date}</div>
-              <div><div class="font-semibold">{company}</div><div class="mt-1 text-sm text-black/55">{role}</div></div>
+          {timeline.map(([date, company, role, logo]) => (
+            <div class="grid grid-cols-[90px_48px_1fr] items-center gap-4 border-t border-black/10 py-6 sm:grid-cols-[120px_48px_1fr] sm:gap-5">
+              <!-- Date -->
+              <div class="font-mono text-xs text-black/40">
+                {date}
+              </div>
+
+              <!-- Company logo -->
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white">
+                {logo === 'pepsico' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="PepsiCo">
+                    <circle cx="24" cy="24" r="20" fill="#004B93" />
+                    <path
+                      d="M8 25c8 5 18 7 32 1"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="5"
+                    />
+                    <path
+                      d="M8 21c8-5 18-7 32-1"
+                      fill="none"
+                      stroke="#E32934"
+                      stroke-width="5"
+                    />
+                    <path
+                      d="M8 24c8 4 18 5 32 1"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-width="2"
+                    />
+                  </svg>
+                )}
+
+                {logo === 'volvo' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="Volvo">
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="15"
+                      fill="none"
+                      stroke="#003057"
+                      stroke-width="4"
+                    />
+                    <path
+                      d="M31 9h9v9"
+                      fill="none"
+                      stroke="#003057"
+                      stroke-width="4"
+                    />
+                    <text
+                      x="24"
+                      y="29"
+                      text-anchor="middle"
+                      font-size="8"
+                      font-weight="700"
+                      fill="#003057"
+                    >
+                      VOLVO
+                    </text>
+                  </svg>
+                )}
+
+                {logo === 'ey' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="EY">
+                    <rect width="48" height="48" rx="10" fill="#FFE600" />
+                    <text
+                      x="24"
+                      y="31"
+                      text-anchor="middle"
+                      font-size="17"
+                      font-weight="800"
+                      fill="#111"
+                    >
+                      EY
+                    </text>
+                  </svg>
+                )}
+
+                {logo === '3m' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="3M">
+                    <rect width="48" height="48" rx="10" fill="#E4002B" />
+                    <text
+                      x="24"
+                      y="31"
+                      text-anchor="middle"
+                      font-size="16"
+                      font-weight="900"
+                      fill="#fff"
+                    >
+                      3M
+                    </text>
+                  </svg>
+                )}
+
+                {logo === 'fsecure' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="F-Secure">
+                    <rect width="48" height="48" rx="10" fill="#111" />
+                    <text
+                      x="24"
+                      y="30"
+                      text-anchor="middle"
+                      font-size="9"
+                      font-weight="800"
+                      fill="#fff"
+                    >
+                      F-S
+                    </text>
+                  </svg>
+                )}
+
+                {logo === 'daimler' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="Daimler Truck">
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="17"
+                      fill="none"
+                      stroke="#333"
+                      stroke-width="3"
+                    />
+                    <path
+                      d="M24 8L14 34h20L24 8z"
+                      fill="none"
+                      stroke="#333"
+                      stroke-width="2"
+                    />
+                  </svg>
+                )}
+
+                {logo === 'bosch' && (
+                  <svg viewBox="0 0 48 48" class="h-8 w-8" aria-label="Bosch">
+                    <rect width="48" height="48" rx="10" fill="#E20015" />
+                    <text
+                      x="24"
+                      y="30"
+                      text-anchor="middle"
+                      font-size="9"
+                      font-weight="800"
+                      fill="#fff"
+                    >
+                      BOSCH
+                    </text>
+                  </svg>
+                )}
+              </div>
+
+              <!-- Company + role -->
+              <div>
+                <div class="font-semibold">
+                  {company}
+                </div>
+
+                <div class="mt-1 text-sm text-black/55">
+                  {role}
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="border-y border-black/10 bg-white/40">
       <div class="container grid gap-12 py-24 lg:grid-cols-[1fr_1fr] lg:py-28">
         <div>
-          <div class="eyebrow mb-3">04 · About</div>
-          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">Engineer first.<br />Curious always.</h2>
+          <div class="eyebrow mb-3">
+            04 · About
+          </div>
+
+          <h2 class="text-4xl font-semibold tracking-tight md:text-6xl">
+            Engineer first.<br />Curious always.
+          </h2>
         </div>
+
         <div class="space-y-5 text-lg leading-8 text-black/65">
-          <p>I am a Principal Data Engineer based in Warsaw, focused on building reliable data platforms and helping teams move from pipelines toward reusable data products.</p>
-          <p>My background spans data engineering, software development, machine learning, cloud systems, and applied AI.</p>
-          <p>I studied Data Science and Business Analytics at the University of Warsaw, Computer Science at the Polish-Japanese Academy of Information Technology, and Electrical & Electronics Engineering at Boğaziçi University.</p>
+          <p>
+            I am a Principal Data Engineer based in Warsaw, focused on building
+            reliable data platforms and helping teams move from pipelines
+            toward reusable data products.
+          </p>
+
+          <p>
+            My background spans data engineering, software development,
+            machine learning, cloud systems, and applied AI.
+          </p>
+
+          <p>
+            I studied Data Science and Business Analytics at the University of
+            Warsaw, Computer Science at the Polish-Japanese Academy of
+            Information Technology, and Electrical & Electronics Engineering
+            at Boğaziçi University.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="container py-24 lg:py-32">
       <div class="rounded-[2rem] border border-black/10 bg-black p-8 text-white md:p-12 lg:p-16">
         <div class="max-w-3xl">
-          <div class="eyebrow text-white/45">05 · Contact</div>
-          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">Let’s build something useful.</h2>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-white/60">For professional conversations, collaboration, or technical discussions, the best places to find me are LinkedIn and GitHub.</p>
+          <div class="eyebrow text-white/45">
+            05 · Contact
+          </div>
+
+          <h2 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+            Let’s build something useful.
+          </h2>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-white/60">
+            For professional conversations, collaboration, or technical
+            discussions, the best places to find me are LinkedIn and GitHub.
+          </p>
+
           <div class="mt-8 flex flex-wrap gap-3 text-sm">
-            <a class="rounded-full bg-white px-5 py-3 font-medium text-black" href="https://www.linkedin.com/in/alparslan-erol/">LinkedIn ↗</a>
-            <a class="rounded-full border border-white/20 px-5 py-3" href="https://github.com/AlparslanErol">GitHub ↗</a>
+            <a
+              class="rounded-full bg-[#0A66C2] px-5 py-3 text-black transition hover:-translate-y-0.5 hover:bg-[#004182]"
+              href="https://www.linkedin.com/in/alparslan-erol/"
+            >
+              LinkedIn ↗
+            </a>
+
+            <a
+              class="rounded-full border border-white/20 px-5 py-3"
+              href="https://github.com/AlparslanErol"
+            >
+              GitHub ↗
+            </a>
           </div>
         </div>
       </div>
@@ -200,8 +549,13 @@ const timeline = [
 
   <footer class="border-t border-black/10 py-8">
     <div class="container flex flex-col justify-between gap-3 text-xs text-black/45 sm:flex-row">
-      <span>© {new Date().getFullYear()} Alparslan Erol</span>
-      <span>Built with Astro · GitHub Pages</span>
+      <span>
+        © {new Date().getFullYear()} Alparslan Erol
+      </span>
+
+      <span>
+        Built with Astro · GitHub Pages
+      </span>
     </div>
   </footer>
 </BaseLayout>
